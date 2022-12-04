@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
+import { DefaultLayout,AdminLayout } from './components/Layout';
+import {publicRoutes,privateRoutes} from './routes';
+import { AuthState } from './store/AuthProvider';
+
 
 function App() {
+  const {auth:{role}} = AuthState();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          {publicRoutes.map((route,index) => {
+            const Page = route.Component;
+            const Layout = DefaultLayout;
+            return <Route key={index} path={route.path} element={
+              <Layout>
+                <Page />
+              </Layout>
+            }/>
+          })}
+          {role==='admin'&&privateRoutes.map((route,index) => {
+            const Page = route.Component;
+            const Layout = AdminLayout;
+            return <Route key={index} path={route.path} element={
+              <Layout>
+                <Page />
+              </Layout>
+            }/>
+          })}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
