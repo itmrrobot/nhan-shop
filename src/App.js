@@ -1,4 +1,4 @@
-import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
+import {HashRouter as Router,Routes,Route} from 'react-router-dom'
 import { DefaultLayout,AdminLayout } from './components/Layout';
 import {publicRoutes,privateRoutes} from './routes';
 import { AuthState } from './store/AuthProvider';
