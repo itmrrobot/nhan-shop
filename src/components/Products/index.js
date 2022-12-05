@@ -70,7 +70,9 @@ function Products() {
     } 
     useEffect(() => {
         const controller = new AbortController();
-        axios.get(url+'/products')
+        axios.get(url+'/products',{
+            signal: controller.signal
+        })
         .then((res) => {
             setProducts(res.data);
             setLoading(true);
