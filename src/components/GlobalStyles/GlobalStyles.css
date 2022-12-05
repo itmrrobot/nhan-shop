@@ -41,11 +41,12 @@ body {
         overflow-x: hidden;
         transition: 0.5s;
         padding-top: 60px;
+        z-index: 999;
     }
     .closebtn {
         font-size: 4.8rem;
         border: none;
-        background-color: var(--dark-color);
+        background-color: #111;
         color: var(--light-color);
         display: block;
         position: absolute;
