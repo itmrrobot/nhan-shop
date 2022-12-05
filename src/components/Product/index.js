@@ -23,25 +23,20 @@ function Product() {
 
     useEffect(() => {
         const controller = new AbortController();
-        const fetchData = async() => {
-            try{
-                let respone  = await axios.get(url+`/products/${id}`,{
-                    signal: controller.signal
-                });
-                let data = respone && respone.data ? respone.data : {};
-                setProduct(data);
-                setImgs(data.images);
-            } catch(err){
-                if(err) {
-                    console.log(err);
-                } else {
-                    console.log("No error");
-                }
-            }
-    
-        }
-        if(effectRun.current) {
-            fetchData();
+        try {
+          const fetchData = async () => {
+            let respone = await axios.get(url + `/products/${id}`, {
+              signal: controller.signal,
+            });
+            let data = respone && respone.data ? respone.data : {};
+            setProduct(data);
+            setImgs(data.images);
+          };
+          if(effectRun.current) {
+              fetchData();
+          }
+        } catch(e) {
+          console.log(e);
         }
         return () => {
             controller.abort();

@@ -23,7 +23,7 @@ function RelatedProduct() {
             }
             fetchData();
         } catch(e) {
-            throw e;
+            console.log(e);
         }
         return () => {
             controller.abort();
