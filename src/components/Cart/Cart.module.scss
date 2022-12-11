@@ -79,13 +79,13 @@
     .price {
         margin: 18px 0 0 24px;
     }
-    .btn-delete {
-        margin: 6px 0 0 24px;
-        font-size: 3.6rem;
-        cursor: pointer;
-    }
 }
 
+.btn-delete {
+    margin: 6px 0 0 24px;
+    font-size: 3.6rem;
+    cursor: pointer;
+}
 .wrap-btn {
     margin-left: 32px;
     display: flex;
@@ -180,11 +180,20 @@
 }
 
 @media (max-width: 739px) {
-    .container {
-        .btn-delete {
-            margin-top: -32px;
-            margin-left: 4px;
+    .item {
+        position: relative;
+        display: block;
+        .img {
+            width: 120px;
+            height: 120px;
+            margin-left: 12px;
         }
+    }
+    .btn-delete {
+        margin-left: 4px;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 }
 

@@ -78,8 +78,8 @@ function Cart() {
                       </div>
                     </div>
                     <span className={cx("price","hide")}>${product.price} x {product.qty}</span>
-                    <div className={cx("btn-delete")} onClick={() => removeProduct(product.id,product.qty,product.price)}>&times;</div>
                   </div>
+                    <div className={cx("btn-delete")} onClick={() => removeProduct(product.id,product.qty,product.price)}>&times;</div>
                 </div>
               ))}
             </div>
